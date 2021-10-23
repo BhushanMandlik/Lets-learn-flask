@@ -1,16 +1,22 @@
-from flask import Flask, Markup, render_template
+from flask import Flask, redirect, url_for, render_template, request
 
-# Create Flask's app object
-app = Flask(__name__, 
-    instance_relative_config=False,
-    template_folder="templates",
-    static_folder="static")
+app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    # return "Hello World!"
-    # return Markup("<h1>Hello, I am Bhushan Mandlik</h1>")
-    return render_template("index.html", name="Bhushan")
+def home():
+    return render_template("login.html")
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        user = request.form["nm"]
+        return redirect(url_for("user", usr=user))
+    else:
+        return render_template("login.html")
+
+@app.route("/<usr>")
+def user(usr):
+    return f"<h1>{usr}</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
