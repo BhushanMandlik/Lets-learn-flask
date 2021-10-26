@@ -7,7 +7,7 @@ Learnt about: <br>
 
 The flash() method is used to generate informative messages in the flask. It creates a message in one view and renders it to a template view function called next. <br>
 
-# a) flash() method 
+# flash() method 
 
 syntax: flash(message, category)    <br>
 
@@ -15,7 +15,7 @@ It accepts the following parameters.
 1. message: it is the message to be flashed to the user.
 2. Category: It is an optional parameter. Which may represent any error, information, or warning.
 
-# b) get_flashed_messages() method
+# get_flashed_messages() method
 
 syntax: get_flashed_messages(with_categories, category_filter)  
 
